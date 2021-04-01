@@ -8,6 +8,15 @@ public interface ArtistaService {
 	
 	public List<Artista> listaArtistas();
 	
-	public Artista cadastraArtista(Artista artista);
+	public Artista saveArtista(Artista artista);
+	
+	public Artista finById(Long idArtista);
+	
+	public List<Artista> findByNomeArtistaContaining(String nomeArtista);
+	
+	public void updateArtista(Artista artista);
+	
+	public void deleteArtistaById(Long idArtista);
+	
 
 }

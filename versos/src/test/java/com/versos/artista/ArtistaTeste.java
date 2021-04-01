@@ -53,13 +53,9 @@ class ArtistaTeste {
 		LocalDate data = LocalDate.now();
 		LocalDate dataCadastro = artista.getDataCadastro();
 					
-		//data.compareTo(dataCadastro);
+		int res = data.compareTo(dataCadastro);
 		
-		if(data.getDayOfMonth() < dataCadastro.getDayOfMonth() && 
-				data.getMonthValue() < dataCadastro.getMonthValue() &&
-				data.getYear() < dataCadastro.getYear()) {
-			
-		}	
+		System.out.println(res);	
 		
 	}
 
