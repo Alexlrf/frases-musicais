@@ -22,6 +22,15 @@ public class Verso implements Serializable{
 	private String musica;
 	private String album;
 	
+		
+	public Verso(Long idArtista, String frase, String musica, String album) {
+		super();
+		this.idArtista = idArtista;
+		this.frase = frase;
+		this.musica = musica;
+		this.album = album;
+	}
+
 	public Verso() {
 		super();
 	}
