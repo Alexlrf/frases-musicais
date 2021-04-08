@@ -8,7 +8,9 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,14 +34,21 @@ public class VersoController {
 	@GetMapping("/listaVersos")
 	public ResponseEntity<List<Verso>> listaVersos() {
 		List<Verso> lista = versoService.listaVersos();
-
 		return ResponseEntity.ok().body(lista);
 	}
-
+	
+	
 	@PostMapping()
 	public ResponseEntity<Verso> insertVerso(@Valid @RequestBody VersoDTO versoDTO) throws URISyntaxException {
 		Verso novoVerso = versoService.saveVerso(versoMapper.mapVersoDTOtoVerso(versoDTO));
 		return ResponseEntity.created(new URI("/verso/cadastraVerso/" + novoVerso.getIdVerso())).body(novoVerso);
+	}
+	
+	@DeleteMapping("/{idVerso}")
+	public ResponseEntity<Void> deleteVersoById(@PathVariable Long idVerso){
+		versoService.deletaVersoById(idVerso);
+		return ResponseEntity.noContent().build();
+		
 	}
 
 }

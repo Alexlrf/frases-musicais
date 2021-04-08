@@ -9,5 +9,7 @@ public interface VersoService {
 	public List<Verso> listaVersos();
 	
 	public Verso saveVerso(Verso verso);
+	
+	public void deletaVersoById(Long idVerso);
 
 }

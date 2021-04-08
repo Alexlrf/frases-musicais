@@ -2,9 +2,9 @@ package com.versos.services.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.versos.model.entity.Artista;
 import com.versos.model.entity.Verso;
 import com.versos.repository.VersoRepository;
 import com.versos.services.VersoService;
@@ -12,7 +12,8 @@ import com.versos.services.VersoService;
 @Service
 public class VersoServicesImpl implements VersoService{
 	
-	VersoRepository versoRepository;
+	@Autowired
+	private VersoRepository versoRepository;
 
 	@Override
 	public List<Verso> listaVersos() {		
@@ -24,8 +25,11 @@ public class VersoServicesImpl implements VersoService{
 		verso.setIdVerso(null);
 		return versoRepository.save(verso);
 	}
-	
+
+	@Override
+	public void deletaVersoById(Long idVerso) {
+		versoRepository.deleteById(idVerso);
 		
-	
+	}	
 
 }
