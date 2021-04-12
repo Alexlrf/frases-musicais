@@ -1,6 +1,7 @@
 package com.versos.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,12 @@ public class VersoServicesImpl implements VersoService{
 	public List<Verso> listaVersos() {		
 		return versoRepository.findAll();
 	}
+	
+	@Override
+	public Verso findById(Long idVerso) {
+		Optional<Verso> verso = versoRepository.findById(idVerso);
+		return verso.orElse(null);
+	}	
 
 	@Override
 	public Verso saveVerso(Verso verso) {
@@ -30,6 +37,18 @@ public class VersoServicesImpl implements VersoService{
 	public void deletaVersoById(Long idVerso) {
 		versoRepository.deleteById(idVerso);
 		
-	}	
+	}
+
+	@Override
+	public void updateVerso(Verso verso) {
+		Verso versoNovo = this.findById(verso.getIdVerso());
+		versoNovo.setIdArtista(verso.getIdArtista());
+		versoNovo.setFrase(verso.getFrase());
+		versoNovo.setMusica(verso.getMusica());
+		versoNovo.setAlbum(verso.getAlbum());
+		versoRepository.save(versoNovo);
+		
+	}
+		
 
 }
