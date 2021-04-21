@@ -10,8 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="verso")
-public class Verso implements Serializable{
-	
+public class Verso implements Serializable{	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -23,8 +22,9 @@ public class Verso implements Serializable{
 	private String album;
 	
 		
-	public Verso(Long idArtista, String frase, String musica, String album) {
+	public Verso(Long idVerso, Long idArtista, String frase, String musica, String album) {
 		super();
+		this.idVerso = idVerso;
 		this.idArtista = idArtista;
 		this.frase = frase;
 		this.musica = musica;

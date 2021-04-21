@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="artista")
-public class Artista implements Serializable{
-	
+public class Artista implements Serializable{	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -36,8 +35,9 @@ public class Artista implements Serializable{
 	private LocalDate dataCadastro;
 
 		
-	public Artista(String nomeArtista, String generoMusical) {
+	public Artista(Long idArtista, String nomeArtista, String generoMusical) {
 		super();
+		this.idArtista = idArtista;
 		this.nomeArtista = nomeArtista;
 		this.generoMusical = generoMusical;
 	}

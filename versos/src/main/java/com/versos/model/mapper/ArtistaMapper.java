@@ -10,7 +10,7 @@ public class ArtistaMapper {
 	
 	public Artista mapArtistaDTOtoArtista(ArtistaDTO artistaDTO) {
 		
-		Artista artista = new Artista(artistaDTO.getNomeArtista(), artistaDTO.getGeneroMusical());
+		Artista artista = new Artista(null, artistaDTO.getNomeArtista(), artistaDTO.getGeneroMusical());
 		return artista;
 	}
 

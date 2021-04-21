@@ -10,7 +10,7 @@ public class VersoMapper {
 	
 	public Verso mapVersoDTOtoVerso(VersoDTO versoDTO) {
 		
-		Verso verso = new Verso(versoDTO.getIdArtista(), versoDTO.getFrase(), versoDTO.getMusica(), versoDTO.getAlbum());
+		Verso verso = new Verso(null, versoDTO.getIdArtista(), versoDTO.getFrase(), versoDTO.getMusica(), versoDTO.getAlbum());
 		return verso;
 		
 	}
